@@ -6,7 +6,7 @@
 # Requires:             Zabbix Sender, zabbix-mongodb.py
 
 get_MongoDB_metrics(){
-    python3 /etc/zabbix/zabbix-mongodb/bin/zabbix-mongodb.py
+    python3 /etc/zabbix/scripts/zabbix-mongodb.py
 }
 
 varA="$1 ~ /^info/ && match($1,/[0-9].*$/)"
