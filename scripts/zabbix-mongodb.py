@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Date: 03/01/2017
 Author: Long Chen
@@ -181,7 +183,7 @@ class MongoDB(object):
             self.add_metrics('mongodb.operation.' + k, v)
 
         # memory
-        for k in ['resident', 'virtual', 'mapped', 'mappedWithJournal']:
+        for k in ['resident', 'virtual']:
             self.add_metrics('mongodb.memory.' + k, ss['mem'][k])
 
         # connections
