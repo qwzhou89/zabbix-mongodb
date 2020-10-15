@@ -141,7 +141,7 @@ class MongoDB(object):
 
         try:
             config = db_handler.admin.command("replSetGetConfig", 1)
-            connstring = (self.mongo_host + ':' + str(self.mongo_port))
+            connstring = db_handler.admin.command("isMaster")['me']
             connstrings = list()
 
             for i in range(0, len(config['config']['members'])):
@@ -151,9 +151,9 @@ class MongoDB(object):
                 if connstring in host:
                     priority = config['config']['members'][i]['priority']
                     hidden = int(config['config']['members'][i]['hidden'])
+                    self.add_metrics('mongodb.priority', priority)
+                    self.add_metrics('mongodb.hidden', hidden)
 
-            self.add_metrics('mongodb.priority', priority)
-            self.add_metrics('mongodb.hidden', hidden)
         except errors.PyMongoError:
             print ('Error while fetching replica set configuration.'
                    'Not a member of replica set?')
