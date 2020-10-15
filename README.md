@@ -11,7 +11,7 @@ It works with MongoDB 4.0+
 3. Install pymongo `sudo pip3 install pymongo`
 3. One script
     ```
-    curl -fsSL https://raw.githubusercontent.com/leshak/zabbix-mongodb/master/install.sh | sudo bash -
+    curl -fsSL https://raw.githubusercontent.com/qwzhou89/zabbix-mongodb/master/install.sh | sudo bash -
     ```
 
 **Server Stats**
